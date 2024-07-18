@@ -1,0 +1,22 @@
+int findDuplicate(int* nums, int numsSize) {
+    int max=0;
+    for(int i=0;i<numsSize;i++){
+        if(nums[i]>max)
+        max=nums[i];
+    }
+    int freq[max+1];
+    for(int i=0;i<max+1;i++){
+        freq[i]=0;
+    }
+    
+    for(int i=0;i<numsSize;i++){
+        int temp=nums[i];
+        freq[temp]++;
+        if(freq[temp]>=2)
+        return temp;
+    }
+   
+        return 0;
+    
+}
+   
