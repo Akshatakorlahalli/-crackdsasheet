@@ -1,0 +1,30 @@
+int removeDuplicates(int* nums, int numsSize) {
+
+    int min=nums[0];
+    int max=nums[numsSize-1];
+    int size=max-min+1;
+int freq[size];
+for(int j=0;j<size;j++){
+    freq[j]=0;
+}
+
+for(int j=0;j<numsSize;j++){
+    freq[nums[j]-min]++;
+}
+int cnt=0;
+int k=0;
+for (int j = 0; j < size; j++) {
+        if (freq[j] > 0) {
+            nums[k++] = j + min;
+        }
+    }
+  
+
+return k;
+// while(k<=numsSize){
+//     nums[k]=;
+//     k++;
+// }
+
+
+}

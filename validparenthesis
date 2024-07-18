@@ -1,0 +1,43 @@
+  #define max 10000
+  struct stack{
+        char str[max];
+        int top;
+    }st;
+ 
+ void push(struct stack *st,char ch){
+        st->str[++st->top]=ch;
+    }
+    char pop(struct stack *st){
+        if(st->top==-1)
+        return 'p';
+        return st->str[st->top--];
+    }
+    int length(char* ch){
+        int i=0;
+        while(ch[i]!='\0')
+        i++;
+        return i;
+    }
+   
+bool isValid(char* s) {
+     
+    struct stack st;
+     st.top = -1;
+    for(int i=0;i<length(s);i++){
+        if(s[i]== '('|| s[i]=='{'||s[i]=='['){
+        push(&st,s[i]);
+        }
+        else{
+            char popp=pop(&st);
+        if ((s[i]=='}'&& popp!='{') || (s[i]==']'&&popp!='[' )|| (s[i]==')'&&popp!='('))
+        return false;
+        
+        }
+    }
+    if(st.top==-1)
+    return true;
+    else
+    return false;
+  
+    
+}
